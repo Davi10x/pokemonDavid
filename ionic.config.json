@@ -1,0 +1,7 @@
+{
+  "name": "pokeDavid",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
