@@ -15,7 +15,7 @@
   </ion-header>
 
   <div id="container">
-    <ion-searchbar #searchbar placeholder="Search Pokemon"></ion-searchbar>
+    <ion-searchbar #searchbar placeholder="Search Pokemon" (ionClear)="clearPokemon()"></ion-searchbar>
     <ion-button expand="full" (click)="searchPokemon(searchbar.value || '')">Search</ion-button>
 
     <ion-card *ngIf="pokemon">
@@ -54,5 +54,15 @@
         </ul>
       </ion-card-content>
     </ion-card>
+
+    <div *ngIf="!pokemon && randomPokemon" class="ion-text-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-capitalize">{{ randomPokemon.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-img [src]="randomPokemon.sprites.other['official-artwork'].front_default"></ion-img>
+      </ion-card>
+      <ion-button expand="full" (click)="loadRandomPokemon()" class="ion-margin-top">Ver otro</ion-button>
+    </div>
   </div>
 </ion-content>
